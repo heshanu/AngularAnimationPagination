@@ -1,1 +1,54 @@
-<div (click)="onClickSimple()" [@clickedState]="clickInfo"></div>
+<div
+  (click)="onClickSimple()"
+  [@clickedState]="clickInfo"
+  (mousedown)="clickInfo = 'mousedown'"
+></div>
+
+<p (click)="paragraphClick = 'clicked'" [@clickedState]="clickInfo">
+  Some Text
+</p>
+<hr />
+
+<input type="number" (input)="onEnter($event)" />
+<br /><br />
+
+<span
+  [@numberEnteredState]="numberEntered == 1 ? 'selectStated' : 'unselectStated'"
+  >1</span
+>
+<span
+  [@numberEnteredState]="numberEntered == 2 ? 'selectStated' : 'unselectStated'"
+  >2</span
+>
+<span
+  [@numberEnteredState]="numberEntered == 3 ? 'selectStated' : 'unselectStated'"
+  >3</span
+>
+<span
+  [@numberEnteredState]="numberEntered == 4 ? 'selectStated' : 'unselectStated'"
+  >4</span
+>
+<span
+  [@numberEnteredState]="numberEntered == 5 ? 'selectStated' : 'unselectStated'"
+  >5</span
+>
+<span
+  [@numberEnteredState]="numberEntered == 6 ? 'selectStated' : 'unselectStated'"
+  >6</span
+>
+<span
+  [@numberEnteredState]="numberEntered == 7 ? 'selectState' : 'unselectStated'"
+  >7</span
+>
+<span
+  [@numberEnteredState]="numberEntered == 8 ? 'selectStated' : 'unselectStated'"
+  >8</span
+>
+<span
+  [@numberEnteredState]="numberEntered == 9 ? 'selectStated' : 'unselectStated'"
+  >9</span
+>
+<span
+  [@numberEnteredState]="numberEntered == 0 ? 'selectStated' : 'unselectStated'"
+  >0</span
+>

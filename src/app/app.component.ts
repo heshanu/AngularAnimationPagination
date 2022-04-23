@@ -31,18 +31,57 @@ import { Component } from '@angular/core';
           width: '300px',
         })
       ),
+      state(
+        'mousedown',
+        style({
+          backgroundColor: 'red',
+          border: '1px solid black',
+          width: '100px',
+          height: '100px',
+        })
+      ),
+
       transition('default => clicked', animate('1s 500ms ease-in')),
+      //transition('default => clicked', animate('1s 500ms ease-in')),
+      transition('clicked => default', animate('300ms')),
+      transition('mousedown =>clicked', animate('300ms')),
+      //transition('clicked <=>mousedown', animate('300ms'))
+      transition('clicked =>mousedown', animate('300ms')),
+    ]),
+    trigger('numberEnteredState', [
+      state(
+        'unselectStated',
+        style({
+          border: '1px solid black',
+          padding: '5px ',
+        })
+      ),
+      state(
+        'selectStated',
+        style({
+          border: '2px solid blue',
+          padding: '4px ',
+          'background-color': 'lightblue',
+        })
+      ),
     ]),
   ],
 })
 export class AppComponent {
-  title = 'angularAnimation';
+  //title = 'angularAnimation';
+  paragraphClick = 'default';
+  numberEntered!: number;
 
   clickInfo: string = 'default';
   onClickSimple() {
     this.clickInfo = 'clicked';
     setTimeout(() => {
       this.clickInfo = 'default';
-    }, 3000);
+    }, 5000);
+  }
+
+  onEnter(event: any) {
+    this.numberEntered= event.target.value;
+    console.log(this.numberEntered);
   }
 }
