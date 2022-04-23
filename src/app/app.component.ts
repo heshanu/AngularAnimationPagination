@@ -1,4 +1,10 @@
-import { state, style, trigger } from '@angular/animations';
+import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
 import { Component } from '@angular/core';
 
 @Component({
@@ -21,10 +27,11 @@ import { Component } from '@angular/core';
         style({
           backgroundColor: 'red',
           'font-size': '20px',
-          height: '100px',
-          width: '100px',
+          height: '50px',
+          width: '300px',
         })
       ),
+      transition('default => clicked', animate('1s 500ms ease-in')),
     ]),
   ],
 })
@@ -34,8 +41,8 @@ export class AppComponent {
   clickInfo: string = 'default';
   onClickSimple() {
     this.clickInfo = 'clicked';
-    setTimeout(()=>{
-      this.clickInfo='default';
-    },3000)
+    setTimeout(() => {
+      this.clickInfo = 'default';
+    }, 3000);
   }
 }
